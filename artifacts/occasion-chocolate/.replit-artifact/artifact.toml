@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Occasion Chocolate"
+description = "A luxurious Arabic-first landing page showcasing Occasion Chocolate and presenting its products with a refined, high-end brand experience."
+version = "1.0.0"
+id = "artifacts/occasion-chocolate"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23280
+
+[services.development]
+run = "pnpm --filter @workspace/occasion-chocolate run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/occasion-chocolate", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/occasion-chocolate/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23280"
+BASE_PATH = "/"
