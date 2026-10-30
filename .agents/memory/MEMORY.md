@@ -1,0 +1,1 @@
+- [Occasion profile guidance](occasion-profile-guidance.md) — Use the old profile only for broad brand context, not as landing-page copy.
